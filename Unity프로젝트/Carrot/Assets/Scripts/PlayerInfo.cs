@@ -43,6 +43,9 @@ public class PlayerInfo : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < itemSlotInfos.Count; i++)
         {
+            if (itemSlotInfos[i].GetNum() < 1)
+                continue;
+
             tmp = Instantiate(Resources.Load("Prefabs/ItemSlot")) as GameObject;
             tmp.transform.SetParent(inventoryGO.transform);
             //tmp.GetComponent<ItemSlot>().item = itemSlotInfos[i].itemInfo;
@@ -61,13 +64,13 @@ public class PlayerInfo : MonoBehaviour
     #endregion
 
     #region Item
-    public void getItem(int _id, int _amount)
+    public void getItem(Item.ItemInfo _item, int _amount)
     {
         bool haveIt = false;
 
         for (int i = 0; i < itemSlotInfos.Count; i++)
         {
-            if (itemSlotInfos[i].GetItem().ID == _id)
+            if (itemSlotInfos[i].GetItem().ID == _item.ID)
             {
                 itemSlotInfos[i].get(_amount);
                 haveIt = true;
@@ -77,8 +80,8 @@ public class PlayerInfo : MonoBehaviour
         if (!haveIt)
         {
             ItemSlotInfo tmp = new ItemSlotInfo();
-            // id 기반으로 아이템 정보 읽어오기.
-            //tmp.SetItem();
+
+            tmp.SetItem(_item);
             tmp.SetNum(_amount);
 
             itemSlotInfos.Add(tmp);
@@ -151,7 +154,7 @@ public class PlayerInfo : MonoBehaviour
     #region Read
     void ReadInfo()
     {
-        this.Carrot = "0";
+        this.Carrot = "10";
     }
 
     void ReadInventory()
@@ -162,21 +165,25 @@ public class PlayerInfo : MonoBehaviour
         Item.ItemInfo tmpItem;
 
         // tmp..
-        for (int i = 0; i < 12; i++)
-        {
-            tmpSlotInfo = new ItemSlotInfo();
+        //for (int i = 0; i < 12; i++)
+        //{
+        //    tmpSlotInfo = new ItemSlotInfo();
 
-            tmpItem = new Item.ItemInfo();
-            tmpItem.ID = i + 1;
-            tmpItem.Name = "ha" + i;
-            tmpItem.GrowTime = (i + 10) * ((i+1) * (i+1));
-            tmpItem.SellPrice = (i + 10).ToString();
+        //    tmpItem = new Item.ItemInfo();
+        //    tmpItem.ID = i + 1;
+        //    tmpItem.Name = "ha" + i;
+        //    tmpItem.GrowTime = (i + 10) * ((i+1) * (i+1));
+        //    tmpItem.SellPrice = (i + 10).ToString();
 
-            tmpSlotInfo.SetItem(tmpItem);
-            tmpSlotInfo.SetNum(Random.Range(0, 15));
-            if (tmpSlotInfo.GetNum() != 0)
-                itemSlotInfos.Add(tmpSlotInfo);
-        }
+        //    tmpSlotInfo.SetItem(tmpItem);
+        //    tmpSlotInfo.SetNum(Random.Range(0, 15));
+        //    if (tmpSlotInfo.GetNum() != 0)
+        //        itemSlotInfos.Add(tmpSlotInfo);
+        //}
+
+        //tmpSlotInfo = new ItemSlotInfo();
+        //tmpItem = new Item.ItemInfo();
+        //tmpItem.ID = 1;
     }
     #endregion
 

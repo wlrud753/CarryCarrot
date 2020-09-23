@@ -11,8 +11,8 @@ public class SkillPerformer : MonoBehaviour
 
     List<Item.ItemInfo> items;
 
-    float plantTimer, HarvestTimer, ClickTimer;
-    float pTimer,     hTimer,       cTimer;
+    float PlantTimer, HarvestTimer, ClickTimer; // 기준 시간
+    float pTimer,     hTimer,       cTimer; // 시간 체크용
     bool canPlant, canHarvest, canClick;
 
     int clickFarmAmount;
@@ -31,7 +31,7 @@ public class SkillPerformer : MonoBehaviour
         canClickFarms = new List<FarmField>();
 
         // Read Skill Info
-        plantTimer = 20; HarvestTimer = 20; ClickTimer = 1f; clickFarmAmount = 1; //tmp
+        PlantTimer = 20; HarvestTimer = 20; ClickTimer = 1f; clickFarmAmount = 1; //tmp
 
     }
     // 화면 상 보이는 밭 obj들을 리스트에 모두 저장
@@ -54,7 +54,7 @@ public class SkillPerformer : MonoBehaviour
         if (canPlant == false)
         {
             pTimer += Time.deltaTime;
-            if(pTimer > plantTimer)
+            if(pTimer > PlantTimer)
             {
                 pTimer = 0;
                 canPlant = true;
@@ -78,13 +78,13 @@ public class SkillPerformer : MonoBehaviour
                 canClick = true;
             }
         }
-        
-        if (canPlant)
+
+        if (canPlant && CanAutoPlant())
         {
             canPlant = false;
             AutoPlant();
         }
-        if (canHarvest)
+        if (canHarvest && CanAutoHarvest())
         {
             canHarvest = false;
             AutoHarvest();
@@ -96,10 +96,32 @@ public class SkillPerformer : MonoBehaviour
         }
     }
 
+    // Expand 채워야 함. Expand 끝나고 farmFields 재할당해줘야 함
     void ExpandFarm()
     {
 
     }
+
+    bool CanAutoPlant()
+    {
+        for (int i = 0; i < farmFields.Count; i++)
+        {
+            if (farmFields[i].isPlanted == false)
+                return true;
+        }
+        return false;
+    }
+    bool CanAutoHarvest()
+    {
+        for (int i = 0; i < farmFields.Count; i++)
+        {
+            if (farmFields[i].isAllGrown)
+                return true;
+        }
+
+        return false;
+    }
+
     void AutoPlant()
     {
         int expenIdx = 0;
@@ -135,7 +157,7 @@ public class SkillPerformer : MonoBehaviour
                 break;
             }
         }
-    }
+    } 
     // 밭 여러 개에서도 적용되는지 확인하면 끝.
     void AutoClick()
     {
@@ -150,7 +172,7 @@ public class SkillPerformer : MonoBehaviour
         // 작물 성장 중인 밭이 있는 경우, 클릭 가능한 밭 개수만큼 클릭
         if (canClickFarms.Count > 0)
         {
-            // 성장 중인 밭 개수보다, 스킬이 클릭해주는 밭 개수가 더 작은 경우에
+            // 성장 중인 밭 개수보다 스킬이 클릭해주는 밭 개수가 더 작은 경우
             // 성장 중인 밭 개수를 클릭 횟수의 기준으로 설정
             int[] idx = (clickFarmAmount < canClickFarms.Count) ?
                 new int[clickFarmAmount] : new int[canClickFarms.Count];
@@ -176,23 +198,32 @@ public class SkillPerformer : MonoBehaviour
             }
         }
     }
-    
-    public void updateSkill(int _id, int _lv)
+
+
+    public void updateSkill(int _id, int _lv) // SkillShopSlot에서 호출함
     {
         // 각 스킬별 레벨-효과 환산식 적용
         switch (_id)
         {
             case 0: // 밭 크기 up
+                //ExpandFarm(_lv?);
                 break;
             case 1: // 클릭시 시간 단축량 up
+                //playerInfo.GrowHelpLvUp(_increment amount);
                 break;
-            case 2: // 자동 클릭 (클릭량 증가)
+            case 2: // 자동 클릭 (클릭 쿨타임 감소)
+                //ClickTimer -= Amount;
                 break;
-            case 3: // 자동 클릭 (클릭 쿨타임 감소, 클릭하는 밭 개수 감소)
+            case 3: // 자동 클릭 (클릭하는 밭 개수 증가)
+                //clickFarmAmount++;
+                //if (clickFarmAmount > farmFields.Count)
+                //    clickFarmAmount = farmFields.Count;
                 break;
             case 4: // 자동 파종 (중간 텀 단축)
+                //plantTimer -= Amount;
                 break;
             case 5: // 자동 수확 (중간 텀 단축)
+                //HarvestTimer -= Amount;
                 break;
         }
     }

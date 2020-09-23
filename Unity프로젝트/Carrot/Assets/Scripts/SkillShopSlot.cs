@@ -10,8 +10,6 @@ public class SkillShopSlot : MonoBehaviour
 
     SkillPerformer skillPerformer;
 
-    // Skill helper? performer? 있어야 함.
-
     Image IMG;
     TextMeshProUGUI Name, LvText, Description, LvUpText;
 
@@ -54,7 +52,9 @@ public class SkillShopSlot : MonoBehaviour
         playerInfo.useCarrot(this.LvPrice);
 
         this.Lv++;
-        // 효과 업글 필요... >> skill helper? performer? 한테 렙업 정보 전달.
+        // 효과 업글 필요... >> skill performer에 렙업 정보 전달.
+
+        // temp
         description += "\n렙1업";
         LvPrice = NumberConverter.multipleBtwUnit(LvPrice, 1.5f);
 

@@ -59,7 +59,7 @@ public class VegiShopSlot : MonoBehaviour
             return;
         }
         playerInfo.useCarrot(this.item.SeedPrice);
-        playerInfo.getItem(this.item.ID, 1);
+        playerInfo.getItem(this.item, 1);
     }
 
     public void Lv_Up()
