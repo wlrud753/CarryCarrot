@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/Carrot_RE.unity
+  isLoaded: 1
+  isActive: 1
