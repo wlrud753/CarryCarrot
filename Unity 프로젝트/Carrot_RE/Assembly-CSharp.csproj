@@ -64,6 +64,7 @@
     <Compile Include="Assets\Farm.cs" />
     <Compile Include="Assets\FarmWindowClosingArea.cs" />
     <Compile Include="Assets\PlayerInfo.cs" />
+    <Compile Include="Assets\ShopUI.cs" />
     <Compile Include="Assets\Timer.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
