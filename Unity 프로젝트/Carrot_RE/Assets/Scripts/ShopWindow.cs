@@ -10,7 +10,7 @@ public class ShopWindow : MonoBehaviour
 
     Vector2 ButtonPos, CenterPos;
 
-    WaitForSeconds wait;
+    WaitForSeconds wait, Delay;
 
     void Start()
     {
@@ -25,33 +25,55 @@ public class ShopWindow : MonoBehaviour
         CenterPos = new Vector2(xPos, yPos);
 
         wait = new WaitForSeconds(0.001f);
-
+        Delay = new WaitForSeconds(0.08f);
     }
 
+    bool openSwitch;
     public void Open()
     {
+        openSwitch = false;
         // 버튼 휘리릭
+        StartCoroutine(RotateOpenButton());
         StartCoroutine(calcArcVec_Open());
+
         StartCoroutine(OpenWindow());
     }
+    bool closeSwitch;
     public void Close()
     {
+        closeSwitch = false;
         StartCoroutine(CloseWindow());
         StartCoroutine(calcArcVec_Close());
+        StartCoroutine(RotateCloseButton());
         // 버튼 호로록
     }
 
     #region ButtonAnim
-
     // Button Rotation
-    // 0.375초간 회전...? Time.deltaTime * 240 << 상수로 저장한 다음 일괄적으로 쓸 수 있게 하자.
-    IEnumerator ButtonOpen()
+    // Time.deltaTime * 240 < 90 동안 360도 회전
+    IEnumerator RotateOpenButton()
     {
-        yield return null;
+        Vector3 zRot = new Vector3(0f, 0f, -12f);
+        for(float r = 0f; r < 90/60f; r += Time.deltaTime * 4)
+        {
+            shopButton.transform.Rotate(zRot);
+            yield return wait;
+        }
+        shopButton.transform.Rotate(zRot);
+        yield return wait;
     }
-    IEnumerator ButtonClose()
+    IEnumerator RotateCloseButton()
     {
-        yield return null;
+        yield return new WaitUntil(() => closeSwitch == true);
+
+        Vector3 zRot = new Vector3(0f, 0f, 12f);
+        for (float r = 0f; r < 90 / 60f; r += Time.deltaTime * 4)
+        {
+            shopButton.transform.Rotate(zRot);
+            yield return wait;
+        }
+        shopButton.transform.Rotate(zRot);
+        yield return wait;
     }
 
     // Button Position
@@ -70,9 +92,13 @@ public class ShopWindow : MonoBehaviour
             shopButton.transform.position = arcVec;
             yield return wait;
         }
+        yield return Delay;
+        openSwitch = true;
     }
     IEnumerator calcArcVec_Close()
     {
+        yield return new WaitUntil(() => closeSwitch == true);
+
         for (float d = 0f; d <= 90f; d += Time.deltaTime * 240) // 0.375초간 이동
         {
             arcVec.x = ButtonPos.x * Mathf.Sin(d * d2r);
@@ -87,6 +113,7 @@ public class ShopWindow : MonoBehaviour
     Vector2 scaleVec = Vector2.up;
     IEnumerator OpenWindow()
     {
+        yield return new WaitUntil(() => openSwitch == true);
         scaleVec.x = 0f;
         while(scaleVec.x < 1f)
         {
@@ -108,6 +135,9 @@ public class ShopWindow : MonoBehaviour
         }
         scaleVec.x = 0f;
         shopWindow.transform.localScale = scaleVec;
+
+        yield return Delay;
+        closeSwitch = true;
     }
     #endregion
 }
