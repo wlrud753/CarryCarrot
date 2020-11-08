@@ -1,52 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Farm : MonoBehaviour
+public class Farm
 {
-    PlayerInfo playerInfo;
+    public Farm()
+    {
+
+    }
+    public Farm(int _id = 0, int _lv = 0, int _earning = 0, float _planttime = 0f)
+    {
+        // 객체 이름만 가지고 정보 다 계산/읽어서 설정하도록..
+
+        this.FarmID = _id;
+        this.FarmLV = _lv;
+        this.FarmEarning = _earning;
+        this.PlantTime = _planttime;
+    }
 
     int FarmID;
-
     int FarmLV;
-    public int FarmEarning;
 
-    Slider slider;
-    public float PlantTimer;
-    float timer;
+    int FarmEarning;
+    float PlantTime;
 
-    GameObject FarmInfoWindow;
-
-    void Start()
+    public void LvUp()
     {
-        playerInfo = GameObject.Find("Player Info").GetComponent<PlayerInfo>();
-        slider = this.transform.Find("Slider").GetComponent<Slider>();
-        FarmInfoWindow = GameObject.Find("Farm Info").transform.Find("Farm Info Window").gameObject;
-
-        timer = PlantTimer;
-
-        setSlider();
-    }
-    void setSlider()
-    {
-        slider.maxValue = PlantTimer;
+        this.FarmID++;
+        // Compute Earning, Time
     }
 
-    void Update()
+    #region Getter
+    public int getID()
     {
-        if(timer <= 0)
-        {
-            timer = PlantTimer;
-            playerInfo.getCarrot(FarmEarning);
-        }
-
-        timer -= Time.deltaTime;
-        slider.value = timer;
+        return this.FarmID;
     }
-
-    private void OnMouseDown()
+    public int getLV()
     {
-        FarmInfoWindow.SetActive(true);
+        return this.FarmLV;
     }
+    public int getEarning()
+    {
+        return this.FarmEarning;
+    }
+    public float getPlantTime()
+    {
+        return this.PlantTime;
+    }
+    #endregion
 }

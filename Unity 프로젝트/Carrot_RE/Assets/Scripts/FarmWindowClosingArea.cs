@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class FarmWindowClosingArea : MonoBehaviour
 {
-    public GameObject FarmInfoGO;
+    FarmInfoWindow FarmInfo;
+
+    private void Start()
+    {
+        FarmInfo = GameObject.Find("Farm Info").GetComponent<FarmInfoWindow>();
+    }
 
     private void OnMouseDown()
     {
-        FarmInfoGO.SetActive(false);
+        FarmInfo.Close();
     }
 }

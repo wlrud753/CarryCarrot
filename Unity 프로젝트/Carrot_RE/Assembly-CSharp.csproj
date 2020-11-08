@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FarmInfoWindow.cs" />
     <Compile Include="Assets\Scripts\ClickSystem.cs" />
     <Compile Include="Assets\Scripts\Farm.cs" />
+    <Compile Include="Assets\Scripts\FarmManager.cs" />
     <Compile Include="Assets\Scripts\FarmWindowClosingArea.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\ShopWindow.cs" />
