@@ -6,17 +6,27 @@ public class FarmInfoWindow : MonoBehaviour
 {
     GameObject FarmWindow;
 
+    PlayerInfo playerInfo;
+
+    Farm nowFarm;
+    int LvUpPrice;
+
     WaitForSeconds wait;
     
     void Start()
     {
         FarmWindow = this.transform.Find("Farm Info Window").gameObject;
+
+        playerInfo = GameObject.Find("Player Info").GetComponent<PlayerInfo>();
+
         wait = new WaitForSeconds(0.001f);
     }
 
     public void Open(Farm _farm)
     {
+        this.nowFarm = _farm;
         // Farm 내용으로 text 초기화
+        LvUpPrice = nowFarm.getLV() * 20; Debug.Log("Compute LvUpPrice");
         Activate();
     }
     public void Close()
@@ -27,6 +37,15 @@ public class FarmInfoWindow : MonoBehaviour
 
     #region Text
     #endregion
+
+    public void InputLvUp()
+    {
+        if (playerInfo.useCarrot(LvUpPrice))
+        {
+            nowFarm.LvUp();
+            // LvUpPrice 재측정
+        }
+    }
 
     #region Act, Deact
     void Activate()

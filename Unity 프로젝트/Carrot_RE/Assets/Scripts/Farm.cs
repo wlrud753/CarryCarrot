@@ -26,7 +26,7 @@ public class Farm
 
     public void LvUp()
     {
-        this.FarmID++;
+        this.FarmLV++;
         // Compute Earning, Time
     }
 
