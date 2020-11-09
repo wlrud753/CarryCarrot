@@ -27,6 +27,12 @@ public class PlayerInfo : MonoBehaviour
     {
         this.Carrot += _amount;
     }
+    public bool CanUseCarrot(int _amount)
+    {
+        if (this.Carrot >= _amount)
+            return true;
+        return false;
+    }
     public bool useCarrot(int _amount) // 임시...
     {
         if(this.Carrot - _amount >= 0)
