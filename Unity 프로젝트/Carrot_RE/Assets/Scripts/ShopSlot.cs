@@ -18,8 +18,8 @@ public class ShopSlot : MonoBehaviour
     {
         playerInfo = GameObject.Find("Player Info").GetComponent<PlayerInfo>();
 
-        BuyButton = this.transform.Find("Buy Button").GetComponent<Button>();
-        buttonText = BuyButton.gameObject.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        //BuyButton = this.transform.Find("Buy Button").GetComponent<Button>();
+        //buttonText = BuyButton.gameObject.transform.Find("Text").GetComponent<TextMeshProUGUI>();
     }
     public void SetPrice(int _price)
     {
@@ -30,14 +30,14 @@ public class ShopSlot : MonoBehaviour
     private void Update()
     {
         // 구매 버튼 활성화/비활성화
-        if (BuyCheck(Price) && BuyButton.interactable == false)
-        {
-            BuyButton.interactable = true;
-        }
-        else if(!BuyCheck(Price) && BuyButton.interactable == true)
-        {
-            BuyButton.interactable = false;
-        }
+        //if (BuyCheck(Price) && BuyButton.interactable == false)
+        //{
+        //    BuyButton.interactable = true;
+        //}
+        //else if(!BuyCheck(Price) && BuyButton.interactable == true)
+        //{
+        //    BuyButton.interactable = false;
+        //}
     }
 
     // 구매 체크

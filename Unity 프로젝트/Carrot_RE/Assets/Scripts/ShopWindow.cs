@@ -26,6 +26,8 @@ public class ShopWindow : MonoBehaviour
 
         wait = new WaitForSeconds(0.001f);
         Delay = new WaitForSeconds(0.08f);
+
+        shopWindow.transform.localScale = new Vector3(0f, 1f, 1f);
     }
 
     bool openSwitch;
@@ -54,7 +56,7 @@ public class ShopWindow : MonoBehaviour
     IEnumerator RotateOpenButton()
     {
         Vector3 zRot = new Vector3(0f, 0f, -12f);
-        for(float r = 0f; r < 90/60f; r += Time.deltaTime * 4)
+        for(float r = 0f; r < 90/60f; r += Time.deltaTime * 4) // Time.deltaTime 기준이라.. 횟수가 일정하지 않네
         {
             shopButton.transform.Rotate(zRot);
             yield return wait;

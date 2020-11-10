@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1293691559
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Active Skill
+    uniqueID: 1094695979
+    locked: 0
+  - name: ShopBackground
+    uniqueID: 1638954033
+    locked: 0
+  - name: Shop
+    uniqueID: 1013950745
+    locked: 0
+  - name: FarmInfo Background
+    uniqueID: 32467279
+    locked: 0
+  - name: FarmInfo
+    uniqueID: 2775067957
     locked: 0

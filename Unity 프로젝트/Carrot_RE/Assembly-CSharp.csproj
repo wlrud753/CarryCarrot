@@ -60,15 +60,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FarmInfoWindow.cs" />
     <Compile Include="Assets\Scripts\ClickSystem.cs" />
     <Compile Include="Assets\Scripts\Farm.cs" />
+    <Compile Include="Assets\Scripts\FarmInfoWindow.cs" />
     <Compile Include="Assets\Scripts\FarmManager.cs" />
     <Compile Include="Assets\Scripts\FarmWindowClosingArea.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\ShopSlot.cs" />
     <Compile Include="Assets\Scripts\ShopWindow.cs" />
+    <Compile Include="Assets\Scripts\TabManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\SkillSystem.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
