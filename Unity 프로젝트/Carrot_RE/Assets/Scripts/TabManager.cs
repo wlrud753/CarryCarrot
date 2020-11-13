@@ -21,6 +21,7 @@ public class TabManager : MonoBehaviour
         SetSlotRect();
     }
 
+    #region Setting
     // 전체적으로 파일에서 정보 읽어오기 구현해야 함
     // TAB IDX 맞춰서 적절한 정보 넣도록 구현
     void SetButton()
@@ -42,13 +43,14 @@ public class TabManager : MonoBehaviour
             ScrollRect = Instantiate(Resources.Load("Prefabs/Scroll Rect")) as GameObject;
             ScrollRect.name = "탭 " + i;
             ScrollRect.transform.SetParent(ShopWindow.transform);
+            ScrollRect.transform.localScale = Vector3.one;
             SetSlot(ScrollRect.transform.Find("Slots").gameObject, i);
 
             if(i != 0)
             {
                 Vector3 Pos = ScrollRect.transform.position;
                 Pos.x = -1000f;
-                ScrollRect.transform.position = Pos;
+                ScrollRect.transform.localPosition = Pos;
             }
         }
     }
@@ -64,8 +66,10 @@ public class TabManager : MonoBehaviour
             Slot.name = "슬롯" + _tabIDX + i;
             Slot.transform.Find("Slot").Find("Text").GetComponent<TextMeshProUGUI>().text = "슬롯" + _tabIDX + i;
             Slot.transform.SetParent(SlotPanel.transform);
+            Slot.transform.localScale = Vector3.one;
         }
     }
+    #endregion
 
     public void TabChange(int _tabIDX)
     {

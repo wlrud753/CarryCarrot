@@ -26,7 +26,7 @@ public class FarmInfoWindow : MonoBehaviour
     {
         this.nowFarm = _farm;
         // Farm 내용으로 text 초기화
-        LvUpPrice = nowFarm.getLV() * 20; Debug.Log("Compute LvUpPrice");
+        LvUpPrice = nowFarm.getLV() * 20;
         Activate();
     }
     public void Close()

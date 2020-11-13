@@ -116,6 +116,7 @@ public class ShopWindow : MonoBehaviour
     IEnumerator OpenWindow()
     {
         yield return new WaitUntil(() => openSwitch == true);
+
         scaleVec.x = 0f;
         while(scaleVec.x < 1f)
         {
