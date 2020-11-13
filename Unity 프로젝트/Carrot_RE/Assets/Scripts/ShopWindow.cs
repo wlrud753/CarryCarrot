@@ -35,7 +35,7 @@ public class ShopWindow : MonoBehaviour
     {
         openSwitch = false;
         // 버튼 휘리릭
-        StartCoroutine(RotateOpenButton());
+        //StartCoroutine(RotateOpenButton());
         StartCoroutine(calcArcVec_Open());
 
         StartCoroutine(OpenWindow());
@@ -46,7 +46,7 @@ public class ShopWindow : MonoBehaviour
         closeSwitch = false;
         StartCoroutine(CloseWindow());
         StartCoroutine(calcArcVec_Close());
-        StartCoroutine(RotateCloseButton());
+        //StartCoroutine(RotateCloseButton());
         // 버튼 호로록
     }
 
@@ -85,6 +85,7 @@ public class ShopWindow : MonoBehaviour
     */
     Vector2 arcVec = new Vector2();
     const float d2r = Mathf.Deg2Rad;
+    float standardTime, degree; Vector3 zrot = new Vector3(0f, 0f, 0f);
     IEnumerator calcArcVec_Open()
     {
         for (float d = 90f; d >= 0f; d -= Time.deltaTime * 240) // 0.375초간 이동
