@@ -35,7 +35,7 @@ public class ShopWindow : MonoBehaviour
     {
         openSwitch = false;
         // 버튼 휘리릭
-        //StartCoroutine(RotateOpenButton());
+        StartCoroutine(RotateOpenButton());
         StartCoroutine(calcArcVec_Open());
 
         StartCoroutine(OpenWindow());
@@ -46,7 +46,7 @@ public class ShopWindow : MonoBehaviour
         closeSwitch = false;
         StartCoroutine(CloseWindow());
         StartCoroutine(calcArcVec_Close());
-        //StartCoroutine(RotateCloseButton());
+        StartCoroutine(RotateCloseButton());
         // 버튼 호로록
     }
 
@@ -62,6 +62,7 @@ public class ShopWindow : MonoBehaviour
             yield return wait;
         }
         shopButton.transform.Rotate(zRot);
+        shopButton.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         yield return wait;
     }
     IEnumerator RotateCloseButton()
@@ -75,6 +76,7 @@ public class ShopWindow : MonoBehaviour
             yield return wait;
         }
         shopButton.transform.Rotate(zRot);
+        shopButton.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         yield return wait;
     }
 
