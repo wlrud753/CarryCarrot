@@ -68,9 +68,9 @@
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\ShopSlot.cs" />
     <Compile Include="Assets\Scripts\ShopWindow.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem.cs" />
     <Compile Include="Assets\Scripts\TabManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\SkillSystem.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
