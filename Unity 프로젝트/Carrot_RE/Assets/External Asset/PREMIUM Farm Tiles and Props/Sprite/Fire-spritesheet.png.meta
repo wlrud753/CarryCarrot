@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 4ca5b1f4ef62c42ca9b53fd395ca2bc1
-timeCreated: 1506407579
-licenseType: Store
 TextureImporter:
   fileIDToRecycleName:
     21300000: Fire-spritesheet_0
@@ -10,7 +8,8 @@ TextureImporter:
     21300006: Fire-spritesheet_3
     21300008: Fire-spritesheet_4
     21300010: Fire-spritesheet_5
-  serializedVersion: 4
+  externalObjects: {}
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -28,6 +27,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -38,7 +39,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -50,33 +51,63 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -103,6 +134,12 @@ TextureImporter:
         - {x: 10, y: 67.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1c52fad8462215a49ab5ee8ee3317ebb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fire-spritesheet_1
       rect:
@@ -127,6 +164,12 @@ TextureImporter:
         - {x: 5, y: 61.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7d46c5620f42edc4db0e9724141767ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fire-spritesheet_2
       rect:
@@ -156,6 +199,12 @@ TextureImporter:
         - {x: -1, y: 68.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 20836368d628482408ed6bde101e44e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fire-spritesheet_3
       rect:
@@ -192,6 +241,12 @@ TextureImporter:
         - {x: -21, y: 50.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bdc2f4a43986d22469c7ab6791807627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fire-spritesheet_4
       rect:
@@ -217,6 +272,12 @@ TextureImporter:
         - {x: 37, y: -30.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5a76dcad7209cbe4b887efcf2596f2c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Fire-spritesheet_5
       rect:
@@ -247,9 +308,23 @@ TextureImporter:
         - {x: 3, y: 61.5}
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 444aa6bf327e7b3488f3ddc266c63d51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
