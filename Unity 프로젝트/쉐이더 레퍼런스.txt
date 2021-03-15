@@ -1,5 +1,0 @@
-부채꼴 쉐이더
-https://answers.unity.com/questions/1741462/how-to-draw-circular-sector-in-runtime.html
-
-쉐이더 변수 전달
-https://codebakemono.tistory.com/66
