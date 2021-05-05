@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/RescueSheeps.unity
+- path: Assets/Scenes/Sell.unity
   isLoaded: 1
   isActive: 1
